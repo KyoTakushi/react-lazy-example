@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { Suspense } from 'react';
+const Example  = React.lazy(() => import('./Example'));
+const Example2 = React.lazy(() => import('./Example2'));
 
 function App() {
   return (
@@ -18,6 +21,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <Suspense fallback={<div>...loading</div>}>
+        <Example />
+        <Example2 />
+      </Suspense>
     </div>
   );
 }
